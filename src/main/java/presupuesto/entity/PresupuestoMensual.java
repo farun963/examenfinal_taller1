@@ -3,6 +3,8 @@ package presupuesto.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,6 +46,7 @@ public class PresupuestoMensual implements Serializable {
     @Column(name = "estado", nullable = false)
     private String estado;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "id_cliente", nullable = false)
     private Cliente idCliente;

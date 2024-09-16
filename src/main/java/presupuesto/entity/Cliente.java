@@ -3,6 +3,8 @@ package presupuesto.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,6 +40,8 @@ public class Cliente implements Serializable {
     @Column(name = "estado", nullable = false)
     private String estado;
 
+
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
     private List<PresupuestoMensual> presupuestoMensualList;
 
